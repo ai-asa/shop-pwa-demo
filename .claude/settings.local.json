@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:firebase.google.com)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(ls)",
+      "Bash(rm:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx vite:*)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.chakra-ui.com)",
+      "Bash(grep:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git config:*)"
+    ],
+    "deny": []
+  }
+}

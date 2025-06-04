@@ -1,0 +1,20 @@
+{
+  "name": "とあるカフェ",
+  "short_name": "カフェ",
+  "description": "とあるカフェの公式アプリ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#8B4513",
+  "lang": "ja",
+  "scope": "/",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "cafe-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
