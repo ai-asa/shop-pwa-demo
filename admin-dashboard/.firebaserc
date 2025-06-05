@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "line-bot-407102"
+  },
+  "targets": {
+    "line-bot-407102": {
+      "hosting": {
+        "shop-pwa-demo-admin": [
+          "shop-pwa-demo-admin"
+        ]
+      }
+    }
+  }
+}

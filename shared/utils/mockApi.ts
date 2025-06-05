@@ -1,4 +1,4 @@
-import { MenuItem, Order, User, PointCard } from '../types';
+import type { MenuItem, Order, User, PointCard } from '../types';
 import { mockMenuItems } from '../mock-data/menu';
 import { mockOrders } from '../mock-data/orders';
 
