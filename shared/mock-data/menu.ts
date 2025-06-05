@@ -1,4 +1,4 @@
-import { MenuItem } from '../types';
+import type { MenuItem } from '../types';
 
 export const mockMenuItems: MenuItem[] = [
   // ドリンク

@@ -1,4 +1,4 @@
-import { Order } from '../types';
+import type { Order } from '../types';
 import { mockMenuItems } from './menu';
 
 export const mockOrders: Order[] = [

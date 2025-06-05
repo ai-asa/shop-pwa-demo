@@ -21,7 +21,13 @@
       "Bash(git config:*)",
       "Bash(git fetch:*)",
       "Bash(git push:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npx tailwindcss:*)",
+      "WebFetch(domain:tailwindcss.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:blog.logrocket.com)"
     ],
     "deny": []
   }
