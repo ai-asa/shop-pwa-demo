@@ -1,4 +1,4 @@
-import type { Order, MenuItem } from '@shared/types'
+import type { Order, MenuItem, User } from '@shared/types'
 import type { AdminOrder, DashboardStats, InventoryAlert, SalesData } from '@/types'
 
 // 遅延を追加する関数
@@ -265,5 +265,60 @@ export const adminMockApi = {
     // addPointHistory(userId, points, reason)
     
     localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users))
+  },
+
+  // 顧客一覧を取得
+  async getCustomers(): Promise<(User & { lastVisit: Date | null })[]> {
+    await delay(300)
+    
+    const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]') as User[]
+    const orders = JSON.parse(localStorage.getItem(STORAGE_KEYS.ORDERS) || '[]') as Order[]
+    
+    // 各ユーザーの最終来店日を計算
+    return users.map(user => {
+      const userOrders = orders.filter(order => order.customerName === user.name)
+      const lastOrderDate = userOrders.length > 0 
+        ? new Date(Math.max(...userOrders.map(o => new Date(o.createdAt).getTime())))
+        : null
+      
+      return {
+        ...user,
+        lastVisit: lastOrderDate
+      }
+    })
+  },
+
+  // 顧客の注文履歴を取得
+  async getCustomerOrders(userId: string): Promise<Order[]> {
+    await delay(300)
+    
+    const orders = JSON.parse(localStorage.getItem(STORAGE_KEYS.ORDERS) || '[]') as Order[]
+    const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]') as User[]
+    const user = users.find(u => u.id === userId)
+    
+    if (!user) {
+      throw new Error('User not found')
+    }
+    
+    // ユーザー名で注文をフィルタリング
+    return orders
+      .filter(order => order.customerName === user.name)
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, 10) // 直近10件
+  },
+
+  // 顧客のお気に入り商品を取得
+  async getCustomerFavorites(userId: string): Promise<MenuItem[]> {
+    await delay(200)
+    
+    const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]') as User[]
+    const menuItems = JSON.parse(localStorage.getItem(STORAGE_KEYS.MENU_ITEMS) || '[]') as MenuItem[]
+    const user = users.find(u => u.id === userId)
+    
+    if (!user) {
+      throw new Error('User not found')
+    }
+    
+    return menuItems.filter(item => user.favoriteItems.includes(item.id))
   }
 }

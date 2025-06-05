@@ -4,27 +4,11 @@ import MainLayout from '@/components/layout/MainLayout'
 import Dashboard from '@/pages/Dashboard'
 import Orders from '@/pages/Orders'
 import Menu from '@/pages/Menu'
+import Customers from '@/pages/Customers'
+import Analytics from '@/pages/Analytics'
+import Settings from '@/pages/Settings'
 
 const queryClient = new QueryClient()
-
-// プレースホルダーページコンポーネント
-const Customers = () => (
-  <div className="flex items-center justify-center h-64">
-    <p className="text-lg text-muted-foreground">顧客管理画面（実装予定）</p>
-  </div>
-)
-
-const Analytics = () => (
-  <div className="flex items-center justify-center h-64">
-    <p className="text-lg text-muted-foreground">売上分析画面（実装予定）</p>
-  </div>
-)
-
-const Settings = () => (
-  <div className="flex items-center justify-center h-64">
-    <p className="text-lg text-muted-foreground">設定画面（実装予定）</p>
-  </div>
-)
 
 function App() {
   return (
